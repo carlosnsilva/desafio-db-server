@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static io.restassured.RestAssured.config;
 import static io.restassured.RestAssured.given;
 
 public class AbstractStep {
@@ -20,7 +19,7 @@ public class AbstractStep {
     private String endpoint;
     private RequestSpecification request;
     private Response response;
-    protected static final String URL = "http://";
+    protected static final String URL = "https://api-de-tarefas.herokuapp.com/";
 
     public AbstractStep(String endpoint){
         this.endpoint = URL+endpoint;

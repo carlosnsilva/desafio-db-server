@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="7.748">
+    <testcase classname="Cadastrando contato" name="Com sucesso" time="4.272">
+        <system-out>
+            <![CDATA[Dado o endpoint POST api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
+Quando envia a requisicao "cadastrandoContato/cenario1/cenario1_1"..........passed
+Entao retornara statusHttp "201"............................................passed
+E o payload contendo a resposta da requisicao enviada para o endpoint POST https://api-de-tarefas.herokuapp.com/contacts "cadastrandoContato/cenario1/cenario1_1".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Consultando contatos" name="Com sucesso" time="2.335">
+        <system-out>
+            <![CDATA[Dado o endpoint GET api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
+Quando a requisicao e enviada...............................................passed
+Entao retornara statushttP "200"............................................passed
+E o payload contendo a resposta da requisicao enviada para o endpoint GET api-de-tarefas.herokuapp.com\contacts "consultandoContato/cenario1/cenario1_1".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Deletando contatos" name="Com sucesso" time="0.76">
+        <failure message="expected [204] but found [404]" type="java.lang.AssertionError">
+            <![CDATA[Dado o endpoint DEL api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
+Quando envia a requisicao...................................................passed
+Entao retornara statushttp "204"............................................failed
+
+StackTrace:
+java.lang.AssertionError: expected [204] but found [404]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at automation.integration.steps.DelContactStep.retornara_statushttp(DelContactStep.java:30)
+	at ✽.retornara statushttp "204"(classpath:features/DeletandoContato.feature:10)
+]]>
+        </failure>
+    </testcase>
+</testsuite>
