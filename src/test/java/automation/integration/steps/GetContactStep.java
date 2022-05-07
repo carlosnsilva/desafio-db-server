@@ -3,10 +3,11 @@ package automation.integration.steps;
 import io.cucumber.java.pt.*;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import java.io.IOException;
 
 public class GetContactStep extends AbstractStep{
 
-    private static final String ENDPOINT = "contacts";
+    private static final String ENDPOINT = "contacts/1542";
     private Response response;
     private String statusCode;
     private String idExecucao;
@@ -36,8 +37,11 @@ public class GetContactStep extends AbstractStep{
 
     }
     @Entao("o payload contendo a resposta da requisicao enviada para o endpoint GET api-de-tarefas.herokuapp.com\\contacts {string}")
-    public void o_payload_contendo_a_resposta_da_requisicao_enviada_para_o_endpoint_get_api_de_tarefas_herokuapp_com_contacts(String string) {
+    public void o_payload_contendo_a_resposta_da_requisicao_enviada_para_o_endpoint_get_api_de_tarefas_herokuapp_com_contacts(String payloadResponse) throws IOException {
+        String payloadDinamico = response.asString();
+        String payloadEstatico = searchJson(payloadResponse,"response");
 
+        Assert.assertEquals(payloadDinamico, payloadEstatico);
     }
 
 }

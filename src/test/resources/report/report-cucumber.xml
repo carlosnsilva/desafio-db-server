@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="7.748">
-    <testcase classname="Cadastrando contato" name="Com sucesso" time="4.272">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="4" time="6.498">
+    <testcase classname="Alterando contato" name="Com sucesso" time="3.364">
+        <system-out>
+            <![CDATA[Dado o endpoint PUT api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
+Quando envia  requisicao "alterandoContato/cenario1/cenario1_1".............passed
+Entao retornara StatusHttp "200"............................................passed
+E o payload contendo a resposta da requisicao enviada para o endpoint PUT api-de-tarefas.herokuapp.com\contacts "alterandoContato/cenario1/cenario1_1".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Cadastrando contato" name="Com sucesso" time="1.471">
         <system-out>
             <![CDATA[Dado o endpoint POST api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
 Quando envia a requisicao "cadastrandoContato/cenario1/cenario1_1"..........passed
@@ -9,7 +18,7 @@ E o payload contendo a resposta da requisicao enviada para o endpoint POST https
 ]]>
         </system-out>
     </testcase>
-    <testcase classname="Consultando contatos" name="Com sucesso" time="2.335">
+    <testcase classname="Consultando contatos" name="Com sucesso" time="0.647">
         <system-out>
             <![CDATA[Dado o endpoint GET api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
 Quando a requisicao e enviada...............................................passed
@@ -18,7 +27,7 @@ E o payload contendo a resposta da requisicao enviada para o endpoint GET api-de
 ]]>
         </system-out>
     </testcase>
-    <testcase classname="Deletando contatos" name="Com sucesso" time="0.76">
+    <testcase classname="Deletando contatos" name="Com sucesso" time="0.656">
         <failure message="expected [204] but found [404]" type="java.lang.AssertionError">
             <![CDATA[Dado o endpoint DEL api-de-tarefas.herokuapp.com\contacts "1.1", "Caso de sucesso".passed
 Quando envia a requisicao...................................................passed
