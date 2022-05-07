@@ -30,8 +30,6 @@ public class GetContactStep extends AbstractStep{
     }
     @Entao("retornara statushttP {string}")
     public void retornara_statushtt_p(String statuscode) {
-        String responseBody = extract(response, null);
-        System.out.println("Response: "+ responseBody);
         statusCode = Integer.toString(response.statusCode());
         Assert.assertEquals(statusCode, statuscode);
 

@@ -37,8 +37,6 @@ public class PostContactStep extends AbstractStep{
     }
     @Entao("retornara statusHttp {string}")
     public void retornara_status_http(String statuscode) {
-        String responseBody = extract(response, null);
-        System.out.println("Response: "+ responseBody);
         statusCode = Integer.toString(response.statusCode());
         Assert.assertEquals(statusCode, statuscode);
     }
@@ -46,6 +44,7 @@ public class PostContactStep extends AbstractStep{
     @Entao("o payload contendo a resposta da requisicao enviada para o endpoint POST https:\\/\\/api-de-tarefas.herokuapp.com\\/contacts {string}")
     public void o_payload_contendo_a_resposta_da_requisicao_enviada_para_o_endpoint_post_https_api_de_tarefas_herokuapp_com_contacts(String payloadResponse) throws IOException {
         idContact = extract(response, "data.id");
+        saveId(idContact);
         String payloadEstatico = searchJson(payloadResponse, "response").replace("?",email).replace("!",idContact);
         String payloadDinamico = response.asString();
 

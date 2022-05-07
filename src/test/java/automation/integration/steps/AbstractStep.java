@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -57,9 +57,10 @@ public class AbstractStep {
         return response;
     }
 
-    public Response sendRequestDel(){
+    public Response sendRequestDel(String idContact){
         RequestSpecification requestDel = configRequest();
-        response = requestDel.delete(endpoint);
+        String url = endpoint+"/"+idContact;
+        response = requestDel.delete(url);
 
         return response;
     }
@@ -112,6 +113,22 @@ public class AbstractStep {
         Object result = new Gson().fromJson(json, (Type) cls);
 
         return result;
+    }
+
+    public void saveId(String idContact) throws IOException {
+        OutputStream os = new FileOutputStream("src/test/resources/idContact/id.txt");
+        Writer wr = new OutputStreamWriter(os);
+        BufferedWriter br = new BufferedWriter(wr);
+
+        br.write(idContact);
+        br.newLine();
+        br.close();
+    }
+
+    public String searchArq(String path) throws IOException {
+        String arch = String.join("", Files.readAllLines(Paths.get("src/test/resources/idContact/"+path), StandardCharsets.UTF_8));
+
+        return arch;
     }
 
 }

@@ -16,7 +16,7 @@ public class PutContactStep extends AbstractStep{
     private Integer number;
     private String idContact;
     int min = 100;
-    int max = 600;
+    int max = 900;
 
     public PutContactStep() {
         super(ENDPOINT);
@@ -35,8 +35,6 @@ public class PutContactStep extends AbstractStep{
     }
     @Entao("retornara StatusHttp {string}")
     public void retornara_status_http(String statuscode) {
-        String responseBody = extract(response, null);
-        System.out.println("Response: "+ responseBody);
         statusCode = Integer.toString(response.statusCode());
         Assert.assertEquals(statusCode, statuscode);
     }

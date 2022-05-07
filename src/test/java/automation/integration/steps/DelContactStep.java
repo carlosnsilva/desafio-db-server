@@ -4,6 +4,8 @@ import io.cucumber.java.pt.*;
 import io.restassured.response.Response;
 import org.testng.Assert;
 
+import java.io.IOException;
+
 public class DelContactStep extends AbstractStep{
 
     private static final String ENDPOINT = "contacts";
@@ -21,8 +23,9 @@ public class DelContactStep extends AbstractStep{
         System.out.println("Descrição do caso: "+descricao);
     }
     @Quando("envia a requisicao")
-    public void envia_a_requisicao() {
-        response = sendRequestDel();
+    public void envia_a_requisicao() throws IOException {
+        String idContact = searchArq("id.txt");
+        response = sendRequestDel(idContact);
     }
     @Entao("retornara statushttp {string}")
     public void retornara_statushttp(String statuscode) {
