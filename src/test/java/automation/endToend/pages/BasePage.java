@@ -6,12 +6,12 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.concurrent.TimeUnit;
 
-public class basePage {
+public class BasePage {
 
     protected WebDriver driver;
     private JavascriptExecutor jse;
 
-    public basePage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
         if (driver != null) {
             this.driver = driver;
@@ -123,6 +123,15 @@ public class basePage {
     public void scrollToElement(WebElement element) {
         jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    public void fillField(WebElement element, String value){
+        waitSeconds(2000);
+        element.sendKeys(value);
+    }
+
+    public WebElement findElementByXpath(String xpath){
+        return driver.findElement(By.xpath(xpath));
     }
 }
 
